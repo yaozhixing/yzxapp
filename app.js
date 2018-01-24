@@ -24,8 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/api/users', users);
-app.use('/api/news', news);
+app.use('/users', users);
+app.use('/news', news);
 
 // 跨域支持
 app.all('/api/*', (req, res, next) => {
