@@ -11,7 +11,7 @@ var news = require('./routes/news');
 
 /*设置代理参数*/
 var proxyMiddleWare = require("http-proxy-middleware");
-var proxyPath = "http://route.showapiooxx.com/";//目标后端服务地址(公司同事电脑地址)
+var proxyPath = "http://route.showapi.com/";//目标后端服务地址(公司同事电脑地址)
 var proxyOption ={target:proxyPath,changeOrigoin:true};
 
 var app = express();
