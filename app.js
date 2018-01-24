@@ -9,6 +9,11 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var news = require('./routes/news');
 
+/*设置代理参数*/
+var proxyMiddleWare = require("http-proxy-middleware");
+var proxyPath = "http://route.showapi.com/";//目标后端服务地址(公司同事电脑地址)
+var proxyOption ={target:proxyPath,changeOrigoin:true};
+
 var app = express();
 
 // view engine setup
@@ -25,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/news', news);
+app.use('/109-35', proxyMiddleWare(proxyOption));
 
 // 跨域支持
 app.all('/api/*', (req, res, next) => {
